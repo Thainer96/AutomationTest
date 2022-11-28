@@ -57,9 +57,8 @@ public class PruebaAccion extends BaseTest {
 			Actions actions = new Actions(driver);
 			WebElement we = driver.findElement(testPage.selectDesplegable);
 			actions.moveToElement(we).perform();
-			esperaExplicita(By.xpath("//a[contains(.,'Regístrate')]"));
-			actions.moveToElement(driver.findElement(By.xpath("//a[contains(.,'Regístrate')]"))).click().build()
-					.perform();
+			esperaExplicita(testPage.menuHoverRegistrarse);
+			actions.moveToElement(driver.findElement(testPage.menuHoverRegistrarse)).click().build().perform();
 		} catch (Exception e) {
 			log.error("########## Error - seleccioneRegistrarte()  #######" + e);
 			throw new AssertionError(e);
@@ -99,10 +98,12 @@ public class PruebaAccion extends BaseTest {
 
 			}
 			ElementVisible();
-			esperaExplicita(By.xpath("(//span[contains(.,'Autorizo el')])[2]"));
-			hacerClick(By.xpath("(//span[contains(.,'Autorizo el')])[2]"));
-			hacerClick(By.xpath("(//span[contains(.,'Autorizo el')])[2]"));
-			hacerClick(By.xpath("(//span[contains(.,'Acepto los')])[2]"));
+			esperaExplicita(testPage.primerCheck);
+			hacerClick(testPage.primerCheck);
+			hacerClick(testPage.primerCheck);
+			ElementVisible();
+			esperaExplicita(testPage.segundoCheck);	
+			hacerClick(testPage.segundoCheck);		
 			
 		} catch (Exception e) {
 			log.error("########## Error - llenarInputUsuario()  #######" + e);
@@ -113,8 +114,11 @@ public class PruebaAccion extends BaseTest {
 	public void registrarse() {
 		log.info("**********  registrarse ************");
 		try {
-			hacerClick(By.xpath("//button[contains(.,'Registrarme')]"));
-			System.out.println("imprimiendo");			
+			hacerClick(testPage.btnRegistrarse);
+			Thread.sleep(3);
+			Hacer_scroll(testPage.tituloRegistro);
+			esperaExplicita(testPage.tituloRegistro);
+			assertEquals("Error comparando los mensajes","Registro Exitoso", extraerTextoElemento(testPage.tituloRegistro));
 		} catch (Exception e) {
 			log.error("########## Error - registrarse()  #######" + e);
 			throw new AssertionError(e);
@@ -127,7 +131,7 @@ public class PruebaAccion extends BaseTest {
 	public void realizarBusquedaInput(String busqueda) {
 		log.info("**********  realizarBusquedaInput ************");
 		try {
-			EscribirElemento(By.xpath("//input[@placeholder='Buscar en falabella.com']"), busqueda);
+			EscribirElemento(testPage.inputBusquedaPrincipal, busqueda);
 			EnviarEnter(By.xpath("//input[@placeholder='Buscar en falabella.com']"));
 		} catch (Exception e) {
 			log.error("########## Error - realizarBusquedaInput()  #######" + e);
