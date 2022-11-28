@@ -41,9 +41,10 @@ public class PruebaAccion extends BaseTest {
 	public void cerrarModalesPrincipales() {
 		log.info("**********  cerrarModalesPrincipales ************");
 		try {
-			esperaExplicita(testPage.imgPrincipal);
-			esperaExplicita(testPage.bntCerrarImgPrincipal);
-			hacerClick(testPage.bntCerrarImgPrincipal);	
+//			esperaExplicita(testPage.imgPrincipal);
+//			esperaExplicita(testPage.bntCerrarImgPrincipal);
+//			hacerClick(testPage.bntCerrarImgPrincipal);
+
 		} catch (Exception e) {
 			log.error("########## Error - cerrarModalesPrincipales()  #######" + e);
 			throw new AssertionError(e);
@@ -151,7 +152,7 @@ public class PruebaAccion extends BaseTest {
 	}
 	
 	public void seleccionarCantMaximaProducto() {
-		log.info("**********  seleccionarProducto ************");
+		log.info("**********  seleccionarCantMaximaProducto ************");
 		try {
 			hacerClick(testPage.btnagregarCarro);
 
@@ -178,6 +179,8 @@ public class PruebaAccion extends BaseTest {
 			}			
 			esperaExplicita(testPage.btnIrCarrito);
 			hacerClick(testPage.btnIrCarrito);
+	
+			
 		} catch (Exception e) {
 			log.error("########## Error - seleccionarCantMaximaProducto()  #######" + e);
 			throw new AssertionError(e);
@@ -188,9 +191,7 @@ public class PruebaAccion extends BaseTest {
 		log.info("**********  eliminarOrdenCompra ************");
 		try {
 			esperaExplicita(testPage.linkButtonEliminar);
-			hacerClick(testPage.linkButtonEliminar);
-			
-			
+			hacerClick(testPage.linkButtonEliminar);		
 			ElementVisible();
 			esperaExplicita(testPage.txtTituloCarroVacio);
 			assertEquals("Error en el mensaje comparado",extraerTextoElemento(testPage.txtTituloCarroVacio),
@@ -199,6 +200,81 @@ public class PruebaAccion extends BaseTest {
 			log.error("########## Error - eliminarOrdenCompra()  #######" + e);
 			throw new AssertionError(e);
 		}
+	}
+	
+	public void agregarEmail(String correo) {
+		log.info("**********  agregarEmail ************");
+		try {
+			esperaExplicita(testPage.btnContinuar);
+			hacerClick(testPage.btnContinuar);
+			
+			
+			esperaExplicita(testPage.txtTituloCompra);
+			assertEquals("Error los elementos no coinciden", extraerTextoElemento(testPage.txtTituloCompra),
+					"Compra más rápido y fácil");
+			
+			
+			EscribirElemento(testPage.inputCorreo,correo);
+			hacerClick(testPage.btnContinuar);
+		} catch (Exception e) {
+			log.error("########## Error - agregarEmail()  #######" + e);
+			throw new AssertionError(e);
+		}
+		
+	}
+	
+	public void agregarDireccionValida(String direccion) {
+		log.info("**********  agregarDireccionValida ************");
+		try {
+			esperaExplicita(testPage.inputDireccion);
+			EscribirElemento(testPage.inputDireccion, direccion);
+			esperaExplicita(By.xpath("//button[contains(@id,'"+direccion+"')]"));
+			hacerClick(By.xpath("//button[contains(@id,'"+direccion+"')]"));
+			
+			
+			esperaExplicita(testPage.btnGuardarDireccion);
+			elementoEsClickable(testPage.btnGuardarDireccion);
+			hacerClick(testPage.btnGuardarDireccion);
+			ElementVisible();
+			
+			
+			esperaExplicita(testPage.btnIrPagar);
+			elementoEsClickable(testPage.btnIrPagar);
+			hacerClick(testPage.btnIrPagar);
+		} catch (Exception e) {
+			log.error("########## Error - agregarDireccionValida()  #######" + e);
+			throw new AssertionError(e);
+		}
+		
+	}
+	
+	public void hacerCompraMedioPago(String numeroTarjeta, String cvv, String rut,String mes,String ano) {
+		log.info("**********  hacerCompraMedioPago ************");
+		try {
+			ElementVisible();
+			esperaExplicita(testPage.iframePago);
+			WebElement elemento = driver.findElement(testPage.iframePago);
+			driver.switchTo().frame(elemento);
+			
+			esperaExplicita(testPage.inputNumeroTarjeta);
+			EscribirElemento(testPage.inputNumeroTarjeta, numeroTarjeta);
+			
+			esperaExplicita(testPage.inputCvv);
+			EscribirElemento(testPage.inputCvv, cvv);
+			
+			esperaExplicita(testPage.inputRutTarjeta);
+			EscribirElemento(testPage.inputRutTarjeta, rut);
+			
+			
+			selectValorLista(testPage.listSelectMes,mes);
+			selectValorLista(testPage.listSelectAno, ano);
+			
+			System.out.println("imprimir #####");
+		} catch (Exception e) {
+			log.error("########## Error - hacerCompraMedioPago()  #######" + e);
+			throw new AssertionError(e);
+		}
+		;
 	}
 	
 }

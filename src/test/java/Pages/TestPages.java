@@ -22,6 +22,18 @@ public class TestPages {
 			public By btnIrCarrito;
 			public By linkButtonEliminar;
 			public By txtTituloCarroVacio;
+			public By btnContinuar;
+			public By txtTituloCompra;
+			public By inputCorreo;
+			public By inputDireccion;
+			public By btnGuardarDireccion;
+			public By btnIrPagar;
+			public By iframePago;
+			public By inputNumeroTarjeta;
+			public By inputCvv;
+			public By inputRutTarjeta;
+			public By listSelectMes;
+			public By listSelectAno;
 			
 		public TestPages(WebDriver driver) {
 			this.driver = driver;	
@@ -43,5 +55,18 @@ public class TestPages {
 			btnIrCarrito = By.xpath("//a[@id='linkButton']");
 			linkButtonEliminar = By.xpath("//button[@type='button' and contains(.,'Eliminar')]");
 			txtTituloCarroVacio = By.xpath("(//span[contains(.,'Tu Carro está')])");
+			btnContinuar = By.xpath("//button[contains(.,'Continuar')]");
+			txtTituloCompra = By.xpath("//span[contains(.,'Compra')]");
+			inputCorreo = By.id("testId-Input-email");
+			inputDireccion = By.id("testId-Input-street");
+			btnGuardarDireccion = By.xpath("//button[@id='testId-infoModalFooter-button']");
+			btnIrPagar = By.xpath("//button[contains(.,'Ir a pagar')]");
+			
+			iframePago = By.xpath("//iframe[@title='payment-iframe']");
+			inputNumeroTarjeta = By.xpath("//input[@placeholder='Número de tarjeta de crédito']");
+			inputCvv = By.xpath("//input[@placeholder='CVV']");
+			inputRutTarjeta = By.xpath("//input[@placeholder='RUT dueño de tarjeta ']");
+			listSelectMes = By.xpath("//option[@ng-repeat='month in months']");
+			listSelectAno = By.xpath("//option[@ng-repeat='year in years']");
 		}	
 }

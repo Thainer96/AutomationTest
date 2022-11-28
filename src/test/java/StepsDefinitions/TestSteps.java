@@ -62,6 +62,24 @@ public class TestSteps {
 	public void PermiteEliminarLaCantidadTotalDeLaOrden() {
 		pruebaAccion.eliminarOrdenCompra();
 	}
+	
+	
+	
+	
+	@Y("^se agregue el \"([^\"]*)\" para continuar la compra$")
+	public void agregarCorreo(String email){
+		pruebaAccion.agregarEmail(email);
+	}
+	
+	@Y("^agregue una direccion valida \"([^\"]*)\"$")
+	public void agregarDireccion(String direccion) {
+		pruebaAccion.agregarDireccionValida(direccion);
+	}
+	
+	@Entonces("se permite hacer la compra con los datos en medios de pago {string}{string}{string}{string}{string}")
+	public void sePermiteHacerLaCompraConLosDatos(String numeroTarjeta, String cvv, String rut, String mes, String ano){
+		pruebaAccion.hacerCompraMedioPago(numeroTarjeta, cvv, rut,mes,ano);
+	}
 
 	
 	
