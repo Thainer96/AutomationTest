@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features = "src/test/resources/feature/Test.feature", 					
 		glue = "StepsDefinitions",
-		tags = {"@RegistrarUsuarioFallabella, @EliminarProductosCarrito, @HacerCompraPorCarrito"},
+		tags = {"@HacerCompraPorCarrito"},
 	    snippets = SnippetType.CAMELCASE
 		)
 public class MyRunner {

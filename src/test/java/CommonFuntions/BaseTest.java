@@ -151,6 +151,11 @@ public class BaseTest {
 			throw new AssertionError(e);
 		}
 	}
+	
+	public void elementoEsClickable(By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, 15);
+		wait.until(ExpectedConditions.elementToBeClickable(locator));
+	}
 		
 	
 	public void esperaExplicitaTexto(String texto) {
@@ -244,26 +249,7 @@ public class BaseTest {
         }
 
     }
-		
 	
-	public void selectValorListaValue(By lista,int value) throws InterruptedException {
-		try {
-			int contador = 1;
-	        List<WebElement> ListaElement = driver.findElements(lista);
-	        for (WebElement webElement : ListaElement) {
-	            String str = limpiarCadena(webElement.getText());
-	            if (contador==value) {            		            	
-	            	webElement.click();             
-	                break;
-	            }
-	            contador++;
-	        }
-		} catch (Exception e) {
-			// 
-		}
-		
-
-    }	
 	
 	public List<String> returnStringListelement(By list){
 		List<WebElement> ListaElement = driver.findElements(list);
@@ -335,11 +321,10 @@ public class BaseTest {
 
             @Override
             public Boolean apply(WebDriver driver) {
-				List<WebElement> element = driver.findElements(Spinner);                
-                if (element.size()>=1) {
-                    return true;
-                }
-
+//				WebElement element = driver.findElement(Spinner);                
+                if (wait.until(ExpectedConditions.invisibilityOfElementLocated(Spinner))) {                	
+                	return true;
+                }                
                 return false;
             }
             
