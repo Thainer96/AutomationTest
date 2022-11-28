@@ -22,11 +22,11 @@ Este proyecto utiliza el patron POM (Page Object Model) con las siguientes tecno
 
 ## Instalación
 
-Descargar el repositorio de la siguiente URL ""
+Descargar el repositorio de la siguiente URL "https://github.com/Thainer96/AutomationTest.git"
 Ejecutar los siguientes comandos
 
 ```sh
-git clone ""
+git clone https://github.com/Thainer96/AutomationTest.git
 git pull origin master
 mvn clean install -U
 ```
