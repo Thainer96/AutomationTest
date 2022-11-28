@@ -29,8 +29,9 @@ Característica: Automatizacion Test
   Esquema del escenario: Realizar la compra por el carrito
     Cuando realice la busqueda <Busqueda>
     Y seleccione el producto con nombre <Producto>
-    Y agrege al carrito aumentando la cantidad maxima por producto    
+    Y agrege al carrito aumentando la cantidad maxima por producto  
+    Y se agregue el <Correo>  
 
     Ejemplos: 
-      | Busqueda       | Producto                                 |
-      | "control Play" | "Mando control para play station 4 rojo" |
+      | Busqueda       | Producto                                 |Correo|
+      | "control Play" | "Mando control para play station 4 rojo" |"Praueba1aas23@mail.com"|
