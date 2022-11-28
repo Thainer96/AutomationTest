@@ -9,8 +9,13 @@ public class TestPages {
 			public By bntCerrarImgPrincipal;
 			public By selectDesplegable;
 			public By listInputUsuario;
+			public By primerCheck;
+			public By segundoCheck;
 			public By listCheck;
-			
+			public By tituloRegistro;
+			public By menuHoverRegistrarse;
+			public By btnRegistrarse;
+			public By inputBusquedaPrincipal;
 			public By tituloResultBusqueda;
 			public By listItems;
 			public By principalNombreProducto;
@@ -42,8 +47,13 @@ public class TestPages {
 			bntCerrarImgPrincipal = By.xpath("//div[@class='dy-lb-close']");
 			selectDesplegable = By.xpath("//p[contains(.,'Hola')]");
 			listInputUsuario = By.xpath("//input[contains(@id,'testId-Input-')]");
+			tituloRegistro = By.xpath("(//h3)[1]");
+			menuHoverRegistrarse = By.xpath("//a[contains(.,'Regístrate')]");
+			primerCheck = By.xpath("(//span[contains(.,'Autorizo el')])[2]");
+			segundoCheck = By.xpath("(//span[contains(.,'Acepto los')])[2]");
+			btnRegistrarse = By.xpath("//button[contains(.,'Registrarme')]");
 			listCheck = By.xpath("//p[contains(@class,'jsx-')]/child::span[not(contains(@role,'button'))]");
-			
+			inputBusquedaPrincipal =By.xpath("//input[@placeholder='Buscar en falabella.com']");
 			tituloResultBusqueda = By.xpath("//span[contains(.,'Resultados') and contains(@id,'testId-')]");
 			listItems= By.xpath("//b[contains(@id,'testId-pod-') and contains(@class,'pod-subTitle')]");
 			principalNombreProducto = By.xpath("//div[@data-name]");

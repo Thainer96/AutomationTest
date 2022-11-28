@@ -12,7 +12,7 @@ Característica: Automatizacion Test
 
     Ejemplos: 
       | Nombre   | PrimerApellido   | RUT           | Celular      | Correo                   | Contrasena    |
-      | "pepito" | "Perez Carrillo" | "9.995.632-1" | "3133421083" | "Praueba1aas23@mail.com" | "Password123" |
+      | "pepito" | "Perez Carrillo" | "9.995.632-1" | "3133421083" | "emailprueba0016@mail.com" | "Password123" |
 
   @EliminarProductosCarrito
   Esquema del escenario: Eliminar productos seleccionados del carrito
