@@ -11,17 +11,26 @@ Característica: Automatizacion Test
     Entonces se permite el registro de un usuario en el portal
 
     Ejemplos: 
-      | Nombre   | PrimerApellido   | RUT           | Celular      | Correo               | Contrasena    |
+      | Nombre   | PrimerApellido   | RUT           | Celular      | Correo                   | Contrasena    |
       | "pepito" | "Perez Carrillo" | "9.995.632-1" | "3133421083" | "Praueba1aas23@mail.com" | "Password123" |
 
   @EliminarProductosCarrito
-  Esquema del escenario: Realizar compra en fallabella
-  Cuando realice la busqueda <Busqueda>
-  Y seleccione el producto con nombre <Producto>
-  Y agrege al carrito aumentando la cantidad maxima por producto  
-  Entonces permite eliminar la cantidad total de la orden
-  
-  Ejemplos:
-  |Busqueda| Producto| 
-  |"control Play"|  "Mando control para play station 4 rojo" |
-   
+  Esquema del escenario: Eliminar productos seleccionados del carrito
+    Cuando realice la busqueda <Busqueda>
+    Y seleccione el producto con nombre <Producto>
+    Y agrege al carrito aumentando la cantidad maxima por producto
+    Entonces permite eliminar la cantidad total de la orden
+
+    Ejemplos: 
+      | Busqueda       | Producto                                 |
+      | "control Play" | "Mando control para play station 4 rojo" |
+
+  @HacerCompraPorCarrito
+  Esquema del escenario: Realizar la compra por el carrito
+    Cuando realice la busqueda <Busqueda>
+    Y seleccione el producto con nombre <Producto>
+    Y agrege al carrito aumentando la cantidad maxima por producto    
+
+    Ejemplos: 
+      | Busqueda       | Producto                                 |
+      | "control Play" | "Mando control para play station 4 rojo" |
