@@ -41,9 +41,9 @@ public class PruebaAccion extends BaseTest {
 	public void cerrarModalesPrincipales() {
 		log.info("**********  cerrarModalesPrincipales ************");
 		try {
-//			esperaExplicita(testPage.imgPrincipal);
-//			esperaExplicita(testPage.bntCerrarImgPrincipal);
-//			hacerClick(testPage.bntCerrarImgPrincipal);
+			esperaExplicita(testPage.imgPrincipal);
+			esperaExplicita(testPage.bntCerrarImgPrincipal);
+			hacerClick(testPage.bntCerrarImgPrincipal);
 
 		} catch (Exception e) {
 			log.error("########## Error - cerrarModalesPrincipales()  #######" + e);
