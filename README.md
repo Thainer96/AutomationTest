@@ -27,7 +27,8 @@ Ejecutar los siguientes comandos
 ```sh
 git clone https://github.com/Thainer96/AutomationTest.git
 git pull origin master
-mvn clean install -U
+mvn clean test
+mvn allure:serve
 ```
 
 ## Plugins
