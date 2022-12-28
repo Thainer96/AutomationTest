@@ -1,11 +1,10 @@
 # @TEST Automation
 
-Automatizacion de casos de pruebas en URL "https://www.falabella.com/falabella-cl/"
+Automatizacion de casos de pruebas en URL "https://www.saucedemo.com/"
 
 ## Casos de prueba automatizados
 
-- RegistrarUsuarioFallabella
-- EliminarProductosCarrito
+- IniciarSesion
 - HacerCompraPorCarrito
 
 ## Tecnologias usadas e instaladas
@@ -41,7 +40,7 @@ Plugins necesarios para la ejecucion correcta de los test
 
 ## Ejecución
 
-Abrir el IDE "Eclipse" e importar el proyecto como maven project, entrar a la la siguiente ruta para la visualizacion de los test cases **/AutomatizacionGeneral/src/test/resources/feature/Test.feature**.
+Abrir el IDE "Eclipse" e importar el proyecto como maven project, entrar a la la siguiente ruta para la visualizacion de los test cases **/AutomatizacionGeneral/src/test/resources/feature/TestEn.feature**.
 los casos de prueba se encuentran en este archivo con la notacion **@nombre caso prueba**
 Ingresar a la siguiente ruta **/AutomatizacionGeneral/src/test/java/Runner/MyRunner.java**
 Los casos de prueba a ejecutar se encuentrar dentro de la notacion **tags={@}**, si se desea ejecutar todos dejarlos, de lo contrario quitar los que no se quieran 

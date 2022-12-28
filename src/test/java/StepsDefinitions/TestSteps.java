@@ -1,8 +1,13 @@
 package StepsDefinitions;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+
 import Acciones.PruebaAccion;
 import CommonFuntions.BaseTest;
+import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -18,69 +23,51 @@ public class TestSteps {
 	public TestSteps() {		
 		this.driver = Driver.driver;
 		pruebaAccion = new PruebaAccion(driver);
+	}	
+	
+	@Given("^a user in the page saucedemo$")
+	public void aUserInThePageSaucedemo() throws Throwable{
+		
+	}
+	
+	@When("enter a correct user {string}")
+	public void enterACorrectUser(String user) throws Throwable{
+		pruebaAccion.ingresarUsuario(user);
+	}
+	
+	@And("enter a correct password {string}")
+	public void enteACorrectPassword(String password) throws Throwable{
+		pruebaAccion.ingresarPassword(password);
+	}
+	
+	@And("^press the login button$")
+	public void pressTheLoginButton() throws Throwable{
+		pruebaAccion.presionarLogin();
+	}
+	
+	@Then("^allows the entry to the system$")
+	public void allowsTheEntryToTheSystem()throws Throwable{
+		pruebaAccion.validarLogin();
+	}
+	
+	@And("select a item required {string}")
+	public void selectAItemRequired(String item)throws Throwable {
+		pruebaAccion.seleccionarItem(item);
+	}
+	
+	@And("complete the form with the information {string}{string}{string}")
+	public void completeTheFormWithTheInformation(String name, String lastName, String zipCode){
+		pruebaAccion.llenarinformacion(name, lastName, zipCode);
 	}
 
-	@Dado("^un usuario que ingrese a la pagina de fallabella$")
-	public void unUsuarioQueIngreseALaPaginaDeFallabellar() throws Throwable {
-		pruebaAccion.cerrarModalesPrincipales();
-	}
-
-	@Cuando("^seleccione el desplegable registrarte$")
-	public void navegarRegistrar() throws Throwable {
-		pruebaAccion.seleccioneRegistrarte();
+	@And("validate product description and total price of the {string}")
+	public void validateProductDescriptionAndTotalPriceOfThe(String item){
+		pruebaAccion.validarDescripcionPrecio(item);
 	}
 	
-	@Y("llene el formulario con la siguiente informacion {string}{string}{string}{string}{string}{string}")
-	public void lleneElFormularioConLaSiguienteInformacion(String nombre, String apellido, String rut, String celular,String correo, String contrasena) throws Throwable {
-		pruebaAccion.llenarInputUsuario(nombre, apellido, rut, celular, correo, contrasena);
-	
+	@Then("finish with the order displaying the following message {string}")
+	public void finishWithTheOrderDisplayingTheFollowingMessage(String message){
+		pruebaAccion.finalizarCompra(message);
 	}
-	
-	@Entonces("se permite el registro de un usuario en el portal")
-	public void  sePermiteElRegistroDeUnUsuarioEnElPortal() throws Throwable {
-		pruebaAccion.registrarse();
-	}
-
-	
-	
-	@Cuando("realice la busqueda {string}")
-	public void realiceLaBusqueda(String busqueda) throws Throwable {
-		pruebaAccion.realizarBusquedaInput(busqueda);
-	}
-	
-	@Y("seleccione el producto con nombre {string}")
-	public void seleccioneElProductoConNombre(String busqueda) throws Throwable {
-		pruebaAccion.seleccionarProducto(busqueda);
-	}
-	
-	@Y("agrege al carrito aumentando la cantidad maxima por producto")
-	public void agregeAlCarritoAumentandoLaCantidadMaximaPorProducto() throws Throwable {
-		pruebaAccion.seleccionarCantMaximaProducto();
-	}
-	
-	@Entonces("permite eliminar la cantidad total de la orden")
-	public void PermiteEliminarLaCantidadTotalDeLaOrden() {
-		pruebaAccion.eliminarOrdenCompra();
-	}
-	
-	
-	
-	
-	@Y("^se agregue el \"([^\"]*)\" para continuar la compra$")
-	public void agregarCorreo(String email){
-		pruebaAccion.agregarEmail(email);
-	}
-	
-	@Y("^agregue una direccion valida \"([^\"]*)\"$")
-	public void agregarDireccion(String direccion) {
-		pruebaAccion.agregarDireccionValida(direccion);
-	}
-	
-	@Entonces("se permite hacer la compra con los datos en medios de pago {string}{string}{string}{string}{string}")
-	public void sePermiteHacerLaCompraConLosDatos(String numeroTarjeta, String cvv, String rut, String mes, String ano){
-		pruebaAccion.hacerCompraMedioPago(numeroTarjeta, cvv, rut,mes,ano);
-	}
-
-	
 	
 }
