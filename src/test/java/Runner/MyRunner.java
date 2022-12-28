@@ -8,9 +8,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/feature/Test.feature", 					
+		features = "src/test/resources/feature/testEn.feature", 					
 		glue = "StepsDefinitions",
-		tags = {"@RegistrarUsuarioFallabella, @EliminarProductosCarrito,@HacerCompraPorCarrito"},
+		tags = {"@Login, @Buy_Product"},
 	    snippets = SnippetType.CAMELCASE
 		)
 public class MyRunner {
