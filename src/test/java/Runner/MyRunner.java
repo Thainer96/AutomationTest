@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/test/resources/feature/testEn.feature", 					
+		features = "src/test/resources/feature/TestEn.feature", 					
 		glue = "StepsDefinitions",
 		tags = {"@Login, @Buy_Product"},
 	    snippets = SnippetType.CAMELCASE
