@@ -27,4 +27,4 @@ Feature: Automation Test in SwagLabs
 
     Examples: 
       | User            | Password       | Item                  | Name      | LastName | ZipCode  |
-      | "standard_user" | "secret_sauce" | "Sauce Labs Backpack" | "Thainer" | "Perez"  | "151651" |
+      | "standard_user" | "secret_sauce" | "Sauce Labs Onesie" | "Thainer" | "Perez"  | "151651" |
